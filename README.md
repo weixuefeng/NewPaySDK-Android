@@ -215,6 +215,13 @@ NewPaySDK.requestSignMessage(Activity activity, NewSignMessage newSignMessage);
      Toast.makeText(this, res, Toast.LENGTH_SHORT).show();
  }
 ```
+#### Verify the proof information on server
+```java POST PROOF INFORMATION TO API
+{
+    "signature": "0x...",
+}
+```
+
 ## 7. Request sign transaction
 
 ### Get the sign transaction parameters
@@ -250,4 +257,10 @@ NewPaySDK.requestSignTransaction(Activity activity, NewSignTransaction newSignTr
        String res = data.getStringExtra(SIGNED_SIGN_TRANSACTION);
        Toast.makeText(this, res, Toast.LENGTH_SHORT).show();
   }
+```
+#### Verify the proof information on server
+```java POST PROOF INFORMATION TO API
+{
+    "signature": "0x...",
+}
 ```
