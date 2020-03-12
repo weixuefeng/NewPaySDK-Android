@@ -25,6 +25,7 @@ import com.squareup.picasso.Picasso;
 import org.newtonproject.newpay.android.sdk.NewPaySDK;
 import org.newtonproject.newpay.android.sdk.bean.ConfirmedPayment;
 import org.newtonproject.newpay.android.sdk.bean.ConfirmedProof;
+import org.newtonproject.newpay.android.sdk.bean.ConfirmedSign;
 import org.newtonproject.newpay.android.sdk.bean.HepProfile;
 import org.newtonproject.newpay.android.sdk.bean.NewAuthLogin;
 import org.newtonproject.newpay.android.sdk.bean.NewAuthPay;
@@ -356,12 +357,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // on request sign message
             if(requestCode == NewPaySDK.REQUEST_CODE_SIGN_MESSAGE) {
                 String res = data.getStringExtra(SIGNED_SIGN_MESSAGE);
-                Toast.makeText(this, "信息签名成功 is:" + res, Toast.LENGTH_SHORT).show();
+                ConfirmedSign confirmedSign = gson.fromJson(res, ConfirmedSign.class);
+                Toast.makeText(this, "信息签名成功 is:" + confirmedSign.getSignature(), Toast.LENGTH_SHORT).show();
             }
             // on request sign transaction
             if(requestCode == NewPaySDK.REQUEST_CODE_SIGN_TRANSACTION) {
                 String res = data.getStringExtra(SIGNED_SIGN_TRANSACTION);
-                Toast.makeText(this, "交易签名成功 is:" + res, Toast.LENGTH_SHORT).show();
+                ConfirmedSign confirmedSign = gson.fromJson(res, ConfirmedSign.class);
+                Toast.makeText(this, "交易签名成功 is:" + confirmedSign.getSignature(), Toast.LENGTH_SHORT).show();
             }
         }
 
