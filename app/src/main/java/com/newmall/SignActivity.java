@@ -57,7 +57,6 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void initView() {
-        int intent = getIntent().getIntExtra(SIGN_TYPE,-1);
         lLayoutSignMessage = findViewById(R.id.LLayout_sign_message);
         lLayoutSignTransaction = findViewById(R.id.LLayout_sign_transaction);
         editMessage = findViewById(R.id.edit_message);
@@ -73,6 +72,9 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         tvSignResult = findViewById(R.id.tv_sign_result);
         btnMessage.setOnClickListener(this);
         btnTransaction.setOnClickListener(this);
+
+        int intent = getIntent().getIntExtra(SIGN_TYPE,-1);
+        String newAddress = getIntent().getStringExtra("newAddress");
         switch (intent){
             case SIGN_MESSAGE:
                 lLayoutSignMessage.setVisibility(View.VISIBLE);
@@ -83,6 +85,10 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
                 lLayoutSignTransaction.setVisibility(View.VISIBLE);
                 break;
             default:
+        }
+        if(newAddress!=null){
+            editAddressFrom.setText(newAddress);
+            editAddressTo.setText(newAddress);
         }
     }
 
@@ -157,16 +163,20 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
             // on request sign message
             if(requestCode == NewPaySDK.REQUEST_CODE_SIGN_MESSAGE) {
                 String res = data.getStringExtra(SIGNED_SIGN_MESSAGE);
-                ConfirmedSign confirmedSign = gson.fromJson(res, ConfirmedSign.class);
-                tvSignResult.setText( confirmedSign.getSignature());
-                Toast.makeText(this, "信息签名成功 is:" + confirmedSign.getSignature(), Toast.LENGTH_SHORT).show();
+                if(!TextUtils.isEmpty(res)){
+                    ConfirmedSign confirmedSign = gson.fromJson(res, ConfirmedSign.class);
+                    tvSignResult.setText( confirmedSign.getSignature());
+                    Toast.makeText(this, "信息签名成功 is:" + confirmedSign.getSignature(), Toast.LENGTH_SHORT).show();
+                }
             }
             // on request sign transaction
             if(requestCode == NewPaySDK.REQUEST_CODE_SIGN_TRANSACTION) {
                 String res = data.getStringExtra(SIGNED_SIGN_TRANSACTION);
-                ConfirmedSign confirmedSign = gson.fromJson(res, ConfirmedSign.class);
-                tvSignResult.setText( confirmedSign.getSignature());
-                Toast.makeText(this, "交易签名成功 is:" + confirmedSign.getSignature(), Toast.LENGTH_SHORT).show();
+                if(!TextUtils.isEmpty(res)){
+                    ConfirmedSign confirmedSign = gson.fromJson(res, ConfirmedSign.class);
+                    tvSignResult.setText( confirmedSign.getSignature());
+                    Toast.makeText(this, "交易签名成功 is:" + confirmedSign.getSignature(), Toast.LENGTH_SHORT).show();
+                }
             }
         }
 

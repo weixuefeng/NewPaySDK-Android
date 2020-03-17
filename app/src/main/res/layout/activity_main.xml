@@ -67,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="request20New"
+            android:visibility="gone"
             />
 
         <Button
@@ -75,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="上链单个商品"
+            android:visibility="gone"
             />
 
         <Button
@@ -91,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="直接调用支付20"
+            android:visibility="gone"
             />
         <Button
             android:id="@+id/requestSignMessage"

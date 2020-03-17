@@ -47,6 +47,11 @@
             android:text="给交易签名"
             android:textColor="#000" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:text="Amount(金额)"/>
         <EditText
             android:id="@+id/edit_amount"
             android:layout_width="match_parent"
@@ -55,28 +60,46 @@
             android:hint="请输入数额(整数)"
             android:textSize="15sp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:text="From地址"/>
         <EditText
             android:id="@+id/edit_address_from"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:hint="请输入您的钱包地址"
             android:textSize="15sp" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:text="To地址"/>
         <EditText
             android:id="@+id/edit_address_to"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:hint="请输入new转出的地址"
             android:textSize="15sp" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:text="Nonce"/>
         <EditText
             android:id="@+id/edit_count"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:digits="1234567890"
-            android:hint="请输入transactionCount(整数)"
+            android:hint="请输入Nonce(整数)"
             android:textSize="15sp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:text="GasPrice"/>
         <EditText
             android:id="@+id/edit_gas_price"
             android:layout_width="match_parent"
@@ -84,7 +107,11 @@
             android:digits="1234567890"
             android:hint="请输入gasPrice(整数)"
             android:textSize="15sp" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:text="GasLimit"/>
         <EditText
             android:id="@+id/edit_gas_limit"
             android:layout_width="match_parent"
@@ -92,7 +119,11 @@
             android:digits="1234567890"
             android:hint="请输入gasLimit(整数)"
             android:textSize="15sp" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:text="Data"/>
         <EditText
             android:id="@+id/edit_data"
             android:layout_width="match_parent"

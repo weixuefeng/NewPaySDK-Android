@@ -213,8 +213,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.requestSignTransaction:
+                if(profileInfo == null){
+                    Toast.makeText(this,"请先登录",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent intent1 = new Intent(this,SignActivity.class);
                 intent1.putExtra(SignActivity.SIGN_TYPE,SignActivity.SIGN_TRANSACTION);
+                intent1.putExtra("newAddress",profileInfo.address);
                 startActivity(intent1);
                 break;
             default:
