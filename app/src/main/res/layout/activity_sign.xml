@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.newmall.SignActivity">
+
+    <LinearLayout
+        android:id="@+id/LLayout_sign_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="给信息签名"
+            android:textColor="#000" />
+
+        <EditText
+            android:id="@+id/edit_message"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入需要签名的信息"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_message"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="信息签名" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LLayout_sign_transaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="给交易签名"
+            android:textColor="#000" />
+
+        <EditText
+            android:id="@+id/edit_amount"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:digits="1234567890"
+            android:hint="请输入数额(整数)"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edit_address_from"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入您的钱包地址"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edit_address_to"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入new转出的地址"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edit_count"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:digits="1234567890"
+            android:hint="请输入transactionCount(整数)"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edit_gas_price"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:digits="1234567890"
+            android:hint="请输入gasPrice(整数)"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edit_gas_limit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:digits="1234567890"
+            android:hint="请输入gasLimit(整数)"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edit_data"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入data(数字+字母)"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_transaction"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="交易签名" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_sign_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="签名结果"
+        android:textIsSelectable="true" />
+</LinearLayout>

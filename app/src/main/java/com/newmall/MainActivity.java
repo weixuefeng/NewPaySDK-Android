@@ -208,47 +208,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 directSendToNewPay();
                 break;
             case R.id.requestSignMessage:
-                requestSignMessage();
+                Intent intent = new Intent(this,SignActivity.class);
+                intent.putExtra(SignActivity.SIGN_TYPE,SignActivity.SIGN_MESSAGE);
+                startActivity(intent);
                 break;
             case R.id.requestSignTransaction:
-                requestSignTransaction();
+                Intent intent1 = new Intent(this,SignActivity.class);
+                intent1.putExtra(SignActivity.SIGN_TYPE,SignActivity.SIGN_TRANSACTION);
+                startActivity(intent1);
                 break;
             default:
                 break;
 
         }
-    }
-
-    private void requestSignMessage() {
-        Disposable message = HttpService.getInstance().getSignMessage("message")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        next-> {
-                            Log.i("requestSignMessage", next.toString());
-                            NewPaySDK.requestSignMessage(this, next.result);
-                        },
-                        error-> {
-                            Log.e("requestSignMessage", error.toString());
-                        }
-                );
-    }
-
-    private void requestSignTransaction() {
-        BaseTransaction transaction = new BaseTransaction("100", "0x2342", "0x1231231243",
-                "12", "0x3423", "0xf123", "0x123123");
-        Disposable message = HttpService.getInstance().getSignTransaction(transaction)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        next-> {
-                            Log.i("requestSignTransaction", next.toString());
-                            NewPaySDK.requestSignTransaction(this, next.result);
-                        },
-                        error-> {
-                            Log.e("requestSignTransaction", error.toString());
-                        }
-                );
     }
 
     private void directSendToNewPay() {
